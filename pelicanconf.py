@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+import os
 
 AUTHOR = 'KeitaW'
 SITENAME = 'Manekiel'
@@ -40,13 +41,16 @@ DEFAULT_PAGINATION = 10
 #RELATIVE_URLS = True
 
 # Pelican-blue settings
-SIDEBAR_DIGEST = 'PhD Student in a laboratory for Computational Neuroscience'
+SIDEBAR_DIGEST = 'A blog written by a PhD Student in a laboratory for Computational Neuroscience'
 #FAVICON = 'url-to-favicon'
 DISPLAY_PAGES_ON_MENU = True
-TWITTER_USERNAME = 'keitaw09'
-MENUITEMS = (('Blog', SITEURL),
-             ('Author', SITEURL))
+STATIC_PATHS = ['images', 'files']
 
+
+TWITTER_USERNAME = 'keitaw09'
+MENUITEMS = (('Blog', "blog_index.html"),
+             ('Author', "index.html"),
+             ('CV', "files/cv.pdf"))
 # Blue-penguins settings
 # all defaults to True.
 #DISPLAY_HEADER = True
