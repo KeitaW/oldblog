@@ -9,7 +9,7 @@ THEME = "pelican-themes/pelican-blue"
 PATH = 'content'
 TIMEZONE = 'Asia/Tokyo'
 DEFAULT_LANG = 'ja'
-
+INDEX_SAVE_AS = 'blog_index.html'
 # ipynb configulations
 MARKUP = ('md', 'ipynb')
 PLUGIN_PATHS = ['./pelican-plugins']
@@ -44,7 +44,8 @@ SIDEBAR_DIGEST = 'PhD Student in a laboratory for Computational Neuroscience'
 #FAVICON = 'url-to-favicon'
 DISPLAY_PAGES_ON_MENU = True
 TWITTER_USERNAME = 'keitaw09'
-MENUITEMS = (('Blog', SITEURL),)
+MENUITEMS = (('Blog', SITEURL),
+             ('Author', SITEURL))
 
 # Blue-penguins settings
 # all defaults to True.
