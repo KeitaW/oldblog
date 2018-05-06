@@ -9,7 +9,7 @@ SITEURL = ''
 THEME = "pelican-themes/pelican-blue"
 PATH = 'content'
 TIMEZONE = 'Asia/Tokyo'
-DEFAULT_LANG = 'ja'
+DEFAULT_LANG = 'en'
 INDEX_SAVE_AS = 'blog_index.html'
 # ipynb configulations
 MARKUP = ('md', 'ipynb')
