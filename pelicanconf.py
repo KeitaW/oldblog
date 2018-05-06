@@ -44,7 +44,7 @@ DEFAULT_PAGINATION = 10
 SIDEBAR_DIGEST = 'A blog written by a PhD Student in a laboratory for Computational Neuroscience'
 #FAVICON = 'url-to-favicon'
 DISPLAY_PAGES_ON_MENU = True
-STATIC_PATHS = ['images', 'files']
+STATIC_PATHS = ['images', 'files', 'js']
 
 
 TWITTER_USERNAME = 'keitaw09'
