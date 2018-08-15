@@ -6,21 +6,40 @@ import os
 AUTHOR = 'KeitaW'
 SITENAME = 'Manekiel'
 SITEURL = ''
-THEME = "pelican-themes/pelican-blue"
+THEME = "pelican-themes/uikit"
 PATH = 'content'
 TIMEZONE = 'Asia/Tokyo'
 DEFAULT_LANG = 'en'
-INDEX_SAVE_AS = 'blog_index.html'
+#INDEX_SAVE_AS = 'index.html'
 # ipynb configulations
 MARKUP = ('md', 'ipynb')
-PLUGIN_PATHS = ['./pelican-plugins']
+PLUGIN_PATHS = ['./pelican-plugins', './plugins']
+PLUGINS = ['ipynb.markup', 'render_math', "better_codeblock_line_numbering"]
+MARKDOWN = {
+    'extensions' : ['markdown.extensions.codehilite', 'markdown.extensions.extra', 'markdown.extensions.meta'],
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        # if you have nothing to configure there is no need to add a empty config
+        #'markdown.extensions.meta': {}, 
+    }
+    # By default Pelican already sets the output_format to html5 so it is only needed if you want something else
+    #'output_format': 'html5',
+}
+# For line number PLUGINS = ["better_codeblock_line_numbering"]
+#PLUGINS = ["render_math"]
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-
+LOCALE = ('usa', 'jpn',  # On Windows
+    'en_US', 'ja_JP'     # On Unix/Linux
+    )
+DATE_FORMATS = {
+    'en': ('en_US','%a, %d %b %Y'),
+    'jp': ('ja_JP','%Y-%m-%d(%a)'),
+}
 ## Blogroll
 #LINKS = (('Pelican', 'http://getpelican.com/'),
 #         ('Python.org', 'http://python.org/'),
@@ -43,42 +62,43 @@ DEFAULT_PAGINATION = 10
 # Pelican-blue settings
 SIDEBAR_DIGEST = 'A blog written by a PhD Student in a laboratory for Computational Neuroscience'
 #FAVICON = 'url-to-favicon'
-DISPLAY_PAGES_ON_MENU = True
+#DISPLAY_PAGES_ON_MENU = True
 STATIC_PATHS = ['images', 'files', 'js']
+## Pelican 3.7+
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'linenums': None}
+    }
+}
+# For uikit
+# control the sidebar-tags/links with a simple setting.
+# If the value
+# is 0, all links will be displayed
+# is negative, no links will be displayed
+# is positive, that many links will be displayed
 
-
-TWITTER_USERNAME = 'keitaw09'
-MENUITEMS = (('Blog', "blog_index.html"),
-             ('Author', "index.html"),
-             ('CV', "files/cv.pdf"))
-# Blue-penguins settings
-# all defaults to True.
-#DISPLAY_HEADER = True
-#DISPLAY_FOOTER = True
-#DISPLAY_HOME   = True
-#DISPLAY_MENU   = True
-#
-## provided as examples, they make ‘clean’ urls. used by MENU_INTERNAL_PAGES.
-#TAGS_URL           = 'tags'
-#TAGS_SAVE_AS       = 'tags/index.html'
-#AUTHORS_URL        = 'authors'
-#AUTHORS_SAVE_AS    = 'authors/index.html'
-#CATEGORIES_URL     = 'categories'
-#CATEGORIES_SAVE_AS = 'categories/index.html'
-#ARCHIVES_URL       = 'archives'
-#ARCHIVES_SAVE_AS   = 'archives/index.html'
-#
-## use those if you want pelican standard pages to appear in your menu
-#MENU_INTERNAL_PAGES = (
-#    ('Tags', TAGS_URL, TAGS_SAVE_AS),
-#    ('Author', AUTHORS_URL, AUTHORS_SAVE_AS),
-#    ('Categories', CATEGORIES_URL, CATEGORIES_SAVE_AS),
-#    ('Archives', ARCHIVES_URL, ARCHIVES_SAVE_AS),
-#)
-## additional menu items
-#MENUITEMS = (
-#    ('GitHub', 'https://github.com/'),
-#    ('Twitter', 'https://github.com/'),
-#    ('Linkedin', 'https://www.kernel.org/'),
-#)
-
+DISPLAY_TAGS_ON_SIDEBAR_LIMIT = 0
+DISPLAY_LINKS_ON_SIDEBAR_LIMIT = 0
+AUTHOR_IMAGE = "tori.jpeg"
+# choose default, gradient or almost-flat:
+STYLE = "gradient"
+# wether to capitalize article headings
+# False means everything is not transformed
+CAPITALIZE_HEADINGS = True
+# available licenses (see LICENSE['cc_name']):
+# licenses in version 4.0
+# by-nc
+# by-nc-nd
+# by-nc-sa
+# by-nd
+# by-nd-nc
+# by-sa
+# all icons are included locally,
+# however you can use the icon hosted by <https://licensebuttons.net/>.
+# compact (80x15) or normal (88x31) icon
+LICENSE = {
+    'cc_name':"by-sa",
+    'hosted':False,
+    'compact':True,
+    'brief':False
+    }
